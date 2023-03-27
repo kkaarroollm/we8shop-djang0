@@ -1,7 +1,7 @@
 
 # webshop in django 🪐
 
-built in Django using some JavaScript(AJAX). \
+built in Django using some JavaScript(AJAX). 
 
 
 the admin panel is designed for very little user-admin effort and is quite intuitive for anyone to use. to make an order you gotta be loged in. 
@@ -17,7 +17,7 @@ https://webshop-django-app.herokuapp.com/
 ## get SECRET_KEY
 
 to run this project, you will need to add `SECRET_KEY`
-to your .env file in webshop directory:
+to your .env file in gorgonzolaproject directory:
 
 to get `SECRET_KEY` use the code below:
 
