@@ -5,8 +5,10 @@
 __pycache__/
 venv
 
+static/images
+media/
 .DS_Store
-db.sqlite3
+
 pytest.ini
 
 .pytest_cache
