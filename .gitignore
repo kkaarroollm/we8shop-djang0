@@ -7,7 +7,6 @@ venv
 db.sqlite3
 static/images
 media/
-staticfiles/
 .DS_Store
 
 pytest.ini
