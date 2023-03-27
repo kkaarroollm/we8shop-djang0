@@ -1,0 +1,56 @@
+{% extends 'webshop.html' %}
+{% load static %}
+{% block container %}
+        <div class="cart">
+            {% if items %}
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Product</th>
+                        <th></th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td class="cart-image-col">
+                            <div class="cart-image">
+                                <img src="{{ item.image }}">
+                            </div>
+                        </td>
+                        <td class="cart-item-col">
+                            <div class="cart-item">
+                                <p class="cart-item-title">{{ item.name }}</p>
+                                <p class="cart-size-price">
+                                    {{ item.quantity }} x {{ item.size }}
+                                </p>
+                            </div>
+                        </td>
+                        <td class="cart-remove-item-col">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="product" value="{{ item.slug }}">
+                                <input type="hidden" name="size" value="{{ item.size }}">
+                                <button type="submit" class="item-remove-btn" name="remove">Remove</button>
+                            </form>
+                        </td>
+                        <td class="cart-item-price">{{ item.price }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+                <p>your cart is empty</p>
+            {% endif %}
+            <div class="cart-summary">
+                <h4 class="total">Total</h4>
+                <h5 class="total">{{ total }}</h5>
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="submit" name="checkout" value="Checkout" class="cart-checkout-btn">
+                    </form>
+            </div>
+        </div>
+{% endblock %}

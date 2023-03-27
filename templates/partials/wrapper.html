@@ -1,0 +1,62 @@
+{% load static %}
+    <div class="message">
+        <button type="submit" id="message-button">ok</button>
+        <div class="message-content"></div>
+    </div>
+    <div class="wrapper">
+            <span class="icon-close">
+                <img src="{% static 'images/reject.png' %}" style="height: 45px; width: 45px;">
+            </span>
+        <div class="form-box login" id="login-form">
+            <h2>login</h2>
+            <form action="" method="post">
+                <div class="input-box">
+                    {{ form_login.username }}
+                    {{ form_login.username.label_tag }}
+                </div>
+                <div class="input-box">
+                    {{ form_login.password }}
+                    {{ form_login.password.label_tag }}
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">remember me</label>
+                    <a href="#">forgot password</a>
+                </div>
+                <button type="submit" class="btn">login</button>
+                {% csrf_token %}
+                <div class="login-register">
+                    <p>don't have account?<a class="register-link" id="register-link">register</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="form-box register" id="register-form">
+            <h2>registration</h2>
+            <form action="" method="post">
+                <div class="input-box">
+                    {{ form_register.email }}
+                    <label>email</label>
+                </div>
+                <div class="input-box">
+                    {{ form_register.username }}
+                    <label>username</label>
+                </div>
+                <div class="input-box">
+                    {{ form_register.password }}
+                    <label>password</label>
+                </div>
+                <div class="input-box">
+                    {{ form_register.password_confirmation }}
+                    <label>confirm password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox" name="join_clan">i wanna join the clan</label>
+
+                </div>
+                <button type="submit" class="btn">register!</button>
+                {% csrf_token %}
+                <div class="login-register">
+                    <p>already have an account?<a href=# class="login-link">login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>

@@ -1,0 +1,41 @@
+{% extends 'webshop.html' %}
+{% block categories %}
+    {% include 'partials/categories.html' %}
+{% endblock %}
+{% block container %}
+
+    <div class="product-container">
+        <div class="product-detail-container">
+            <div class="product-detail-title">
+                <h1>{{ product.name }}</h1>
+            </div>
+            <div class="product-image-detail">
+                <img src="{{ main_product_image.image.url }}" class='product-detail-photo'>
+            </div>
+            <div class="product-text">
+                <p>{{ product.description }}</p>
+            </div>
+            <form method="POST" id="cart">
+                {% csrf_token %}
+            <div class="product-price">{{ product.price }}</div>
+            <div class="product-form-select">
+                <select name="size">
+                {% for product_stock_size in product_stock %}
+                    {% if product_stock_size.is_active %}
+                        <option>{{ product_stock_size.size }}</option>
+                    {% endif %}
+                {% endfor %}
+                </select>
+            </div>
+                <input type="hidden" name="product_slug" value="{{ product.slug }}">
+                <input type="number" name="quantity" id="quantity" value="1" min="1">
+                <button type="submit" form="cart">ADD TO CART</button>
+            </form>
+            <div class="product-grid-photos">
+                {% for image in images %}
+                    <img src="{{ image.image.url }}" style="width: 92px; height: 92px;">
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

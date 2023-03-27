@@ -1,0 +1,24 @@
+{% extends 'webshop.html' %}
+{% block categories %}
+    {% include 'partials/categories.html' %}
+{% endblock %}
+{% block container %}
+    <div class="content">
+            <div class="products">
+                {% for product in products %}
+                        <div class="product clearfix">
+                            <a href="{% url 'products:product-detail' slug=product.slug %}" >
+                            {% for image in main_product_image %}
+                                {% if image.product.id == product.id %}
+                                    <img src="{{ image.image.url }}">
+                                {% endif %}
+                            {% endfor %}
+                            <div class="product-title">
+                                <h3 class="title">{{ product.product.name }}</h3>
+                            </div>
+                            </a>
+                        </div>
+                {% endfor %}
+            </div>
+        </div>
+{% endblock %}

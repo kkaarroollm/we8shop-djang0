@@ -1,0 +1,8 @@
+<div class="main-nav">
+    <ul>
+    <a href="{% url 'products:store' %}" class="menu-link">ALL</a>
+        {% for category in categories %}
+        <a href="{% url 'products:category-list' category_slug=category.slug %}" class="menu-link">{{ category.cat_name }}</a>
+        {% endfor %}
+    </ul>
+</div>

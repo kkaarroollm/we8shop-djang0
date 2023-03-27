@@ -1,0 +1,46 @@
+{% extends 'webshop.html' %}
+{% load static %}
+{% block container %}
+    <div class="checkout-view">
+        {% if items %}
+            <table>
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Product</th>
+                    <th></th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td class="cart-image-col">
+                            <div class="cart-image">
+                                <img src="{{ item.image }}">
+                            </div>
+                        </td>
+                        <td class="cart-item-col">
+                            <div class="cart-item">
+                                <p class="cart-item-title">{{ item.name }}</p>
+                                <p class="cart-size-price">
+                                    {{ item.size }}
+                                    {{ item.quantity }}
+                                </p>
+                            </div>
+                        </td>
+                        <td class="cart-remove-item-col"></td>
+                        <td class="cart-item-price">{{ item.price }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+        <form method="post">
+            <h1>Checkout</h1>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="cart-checkout-btn">Place Order</button>
+        </form>
+    </div>
+{% endblock %}

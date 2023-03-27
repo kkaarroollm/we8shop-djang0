@@ -1,0 +1,17 @@
+{% load static %}
+<header>
+    <h2 class="logo">webshop in Django</h2>
+    <nav class="navigation">
+        <a href="{% url 'home:homepage'  %}">home</a>
+        <a href="{% url 'products:store' %}">store</a>
+        <a href="{% url 'cart:cart' %}">cart</a>
+        {% if user.is_authenticated %}
+            <a>hello, {{ user.username }}</a>
+            <a href="{% url 'users:logout' %}">Logout</a>
+        {% else %}
+            <button type="submit" class="btnLogin-popup">
+                Login
+            </button>
+        {% endif %}
+    </nav>
+</header>
