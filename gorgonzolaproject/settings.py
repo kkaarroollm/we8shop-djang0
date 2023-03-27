@@ -140,5 +140,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
 
-CSRF_TRUSTED_ORIGINS = ('https://app-django-webshop.herokuapp.com')
+CSRF_TRUSTED_ORIGINS = ('https://app-django-webshop.herokuapp.com', )
 import django_on_heroku
