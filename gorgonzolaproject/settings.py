@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 import dj_database_url
+import django_on_heroku
 from decouple import config
 from django.urls import reverse_lazy
 
@@ -140,5 +141,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
 
-CSRF_TRUSTED_ORIGINS = ('https://app-django-webshop.herokuapp.com', )
-import django_on_heroku
+
