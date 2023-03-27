@@ -4,7 +4,6 @@
 */**.pyc
 __pycache__/
 venv
-db.sqlite3
 static/images
 media/
 .DS_Store
