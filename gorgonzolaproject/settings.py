@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = True
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-ALLOWED_HOSTS = ['app-django-webshop.herokuapp.com', 'https://app-django-webshop.herokuapp.com']
+ALLOWED_HOSTS = ['webshop-django-app.herokuapp.com', 'https://webshop-django-app.herokuapp.com/']
 INTERNAL_IPS = ALLOWED_HOSTS
 
 
